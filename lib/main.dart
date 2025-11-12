@@ -1,14 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/firebase_options.dart';
-import 'package:icsa_mobile_app/src/features/admin/presentation/pages/admin_dashboard.dart';
+import 'screens/notifications_screen.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+void main() {
   runApp(const MyApp());
 }
 
@@ -36,10 +29,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 93, 0, 255)),
         useMaterial3: true,
       ),
-      home: const AdminDashboardPage(title: 'Flutter Demo Home Page'),
+      home: const NotificationsScreen(),
     );
   }
 }
@@ -89,28 +82,35 @@ class _MyHomePageState extends State<MyHomePage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Colors.white54,
+        backgroundColor: const Color.fromARGB(135, 255, 0, 0),
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
 
+
       body: Column(
         children: [
           Row(
-            children: [Text("Hi MF")],
-          ),
-          Row(
             children: [
-              Text("Second Row"),
+              Text("Hi MF asdadas")
             ],
           ),
-          Row(children: [
-            Text("Third Row"),
-          ]),
-        ],
-      ),
+          Row(
+             children: [
+              Text("Secondur boat")
 
+          ],
+        ),
+        ],
+      
+      ),
+      
+      
+      
+      
+     
+      
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
