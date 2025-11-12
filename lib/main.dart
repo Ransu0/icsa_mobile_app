@@ -1,6 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:icsa_mobile_app/firebase_options.dart';
+import 'package:icsa_mobile_app/src/features/admin/presentation/pages/admin_dashboard.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -31,7 +39,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const AdminDashboardPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -87,24 +95,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
 
-
       body: Column(
         children: [
           Row(
+            children: [Text("Hi MF")],
+          ),
+          Row(
             children: [
-              Text("Hi MF")
+              Text("Second Row"),
             ],
           ),
-        Row(
-          children: [
-            Text("Second Row")
-          ],
-        ),
+          Row(children: [
+            Text("Third Row"),
+          ]),
         ],
       ),
-      
-     
-      
+
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
