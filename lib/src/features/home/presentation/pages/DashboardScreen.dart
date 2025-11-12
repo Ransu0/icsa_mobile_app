@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icsa_mobile_app/src/features/screens/notifications_screen.dart'; // Import NotificationsScreen
 
 void main() {
   runApp(const MyApp());
@@ -28,24 +29,65 @@ class DashboardScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: darkBackground,
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: darkBackground,
+        selectedItemColor: orangeColor,
+        unselectedItemColor: Colors.white70,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        currentIndex: 0, // Dashboard is selected
+        onTap: (index) {
+          if (index == 2) {
+            // Notifications tab clicked
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const NotificationsScreen(),
+              ),
+            );
+          }
+          // Add other navigation if needed (home=0, settings=1, user=3)
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications_active_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: '',
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // --- Greeting Card (with white border + bottom shadow) ---
+              // --- Greeting Card ---
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: cardBackground,
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: const Color.fromARGB(255, 113, 103, 103), width: 1.5),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 113, 103, 103),
+                      width: 1.5),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.4),
                       blurRadius: 6,
-                      offset: const Offset(0, 4), // bottom shadow only
+                      offset: const Offset(0, 4),
                     ),
                   ],
                 ),
@@ -56,7 +98,9 @@ class DashboardScreen extends StatelessWidget {
                       height: 48,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: const Color.fromARGB(255, 237, 217, 217), width: 2),
+                        border: Border.all(
+                            color: const Color.fromARGB(255, 237, 217, 217),
+                            width: 2),
                         image: const DecorationImage(
                           image: AssetImage('assets/events/avatar.jpeg'),
                           fit: BoxFit.cover,
@@ -78,7 +122,7 @@ class DashboardScreen extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // --- Dashboard Card (NO border, NO shadow) ---
+              // --- Dashboard Card ---
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
@@ -108,7 +152,7 @@ class DashboardScreen extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // --- Mini Cards Section ---
+              // --- Mini Cards ---
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Wrap(
@@ -116,8 +160,8 @@ class DashboardScreen extends StatelessWidget {
                   runSpacing: 12,
                   children: [
                     SizedBox(
-                      width:
-                          (MediaQuery.of(context).size.width - 16 * 2 - 12) / 2,
+                      width: (MediaQuery.of(context).size.width - 16 * 2 - 12) /
+                          2,
                       child: DashboardMiniCard(
                         icon: Icons.check_circle,
                         title: 'Clearance',
@@ -128,8 +172,8 @@ class DashboardScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width:
-                          (MediaQuery.of(context).size.width - 16 * 2 - 12) / 2,
+                      width: (MediaQuery.of(context).size.width - 16 * 2 - 12) /
+                          2,
                       child: DashboardMiniCard(
                         icon: Icons.school,
                         title: 'Enrollment',
@@ -140,8 +184,8 @@ class DashboardScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width:
-                          (MediaQuery.of(context).size.width - 16 * 2 - 12) / 2,
+                      width: (MediaQuery.of(context).size.width - 16 * 2 - 12) /
+                          2,
                       child: DashboardMiniCard(
                         icon: Icons.attach_money,
                         title: 'Payments & Fines',
@@ -152,8 +196,8 @@ class DashboardScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width:
-                          (MediaQuery.of(context).size.width - 16 * 2 - 12) / 2,
+                      width: (MediaQuery.of(context).size.width - 16 * 2 - 12) /
+                          2,
                       child: DashboardMiniCard(
                         icon: Icons.event,
                         title: 'Events',
@@ -169,7 +213,7 @@ class DashboardScreen extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // --- Announcements Section ---
+              // --- Announcements ---
               const Text(
                 'Announcements & Updates',
                 style: TextStyle(
@@ -182,7 +226,6 @@ class DashboardScreen extends StatelessWidget {
               const AnnouncementsCard(imagePath: 'assets/events/image.png'),
               const SizedBox(height: 14),
 
-              // --- SGA Section ---
               const Text(
                 'SGA & Resolutions',
                 style: TextStyle(
@@ -209,7 +252,7 @@ class DashboardScreen extends StatelessWidget {
   }
 }
 
-// ---------------- Mini Card ----------------
+// Mini Card Widget
 class DashboardMiniCard extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -235,12 +278,13 @@ class DashboardMiniCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color.fromARGB(255, 113, 103, 103), width: 1.5),
+        border: Border.all(
+            color: const Color.fromARGB(255, 113, 103, 103), width: 1.5),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.4),
             blurRadius: 6,
-            offset: const Offset(0, 4), // bottom shadow only
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -268,7 +312,7 @@ class DashboardMiniCard extends StatelessWidget {
   }
 }
 
-// ---------------- Announcements Card ----------------
+// Announcements Card Widget
 class AnnouncementsCard extends StatelessWidget {
   final String imagePath;
 
