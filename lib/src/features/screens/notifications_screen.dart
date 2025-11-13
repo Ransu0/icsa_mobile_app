@@ -6,8 +6,8 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color bgColor = const Color(0xFF1E2430); // Dark background
-    final Color cardColor = const Color(0xFF2B3244);
+    final Color bgColor = const Color.fromARGB(255, 58, 58, 75); // Dark background
+    final Color cardColor = const Color(0xFF2A2A3C);
     final Color orangeAccent = const Color(0xFFFF8C00);
     final Color blueAccent = Colors.lightBlueAccent;
 
@@ -142,7 +142,7 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color cardColor = const Color(0xFF2B3244);
+    final Color cardColor = const Color.fromARGB(255, 58, 58, 75);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),

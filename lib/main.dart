@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:icsa_mobile_app/src/features/screens/notifications_screen.dart';
 import 'package:icsa_mobile_app/src/features/screens/settings_screen.dart';
 import 'src/features/home/presentation/pages/DashboardScreen.dart';
+import 'package:icsa_mobile_app/src/features/screens/change_password_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +38,8 @@ class MyApp extends StatelessWidget {
       ),
      // home: const DashboardScreen(),
      //home: const NotificationsScreen(),
-     home: const SettingsScreen(),
+    //home: const SettingsScreen(),
+      home: const ChangePasswordScreen(),
     );
   }
 }

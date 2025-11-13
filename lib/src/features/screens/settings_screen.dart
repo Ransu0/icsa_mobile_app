@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:icsa_mobile_app/src/features/home/presentation/pages/DashboardScreen.dart';
+import 'package:icsa_mobile_app/src/features/screens/change_password_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -112,9 +113,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1C2431),
+      backgroundColor: const Color.fromARGB(255, 58, 58, 75),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1C2431),
+        backgroundColor: const Color.fromARGB(255, 58, 58, 75),
         elevation: 0,
         leading: Container(
           margin: const EdgeInsets.all(8),
@@ -141,7 +142,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color.fromARGB(255, 28, 36, 49),
+        backgroundColor: const Color.fromARGB(255, 58, 58, 75),
         selectedItemColor: Colors.orange,
         unselectedItemColor: Colors.white70,
         showSelectedLabels: false,
@@ -200,24 +201,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       "Change Password",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        // Forward button action
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: const Color.fromARGB(255, 110, 99, 99)),
-                          borderRadius: BorderRadius.circular(9),
+                   GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ChangePasswordScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(6),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: const Color.fromARGB(255, 110, 99, 99)),
+                              borderRadius: BorderRadius.circular(9),
+                            ),
+                            child: const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.white,
+                              size: 16,
+                            ),
+                          ),
                         ),
-                        child: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                          size: 16,
-                        ),
-                      ),
-                    ),
+
                   ],
                 ),
               ),

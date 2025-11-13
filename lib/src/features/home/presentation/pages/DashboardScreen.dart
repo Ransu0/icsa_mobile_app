@@ -24,7 +24,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     const darkBackground = Color.fromARGB(255, 58, 58, 75);
     const orangeColor = Color(0xFFFF8C42);
-    const cardBackground = Color(0xFF2A2A3C);
+    const cardBackground = Color.fromARGB(255, 58, 58, 75);
     const whiteColor = Colors.white;
 
     return Scaffold(
