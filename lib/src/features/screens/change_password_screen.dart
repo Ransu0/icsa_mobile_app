@@ -25,7 +25,7 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1E2432), // Dark background
+      backgroundColor: const Color.fromARGB(255, 58, 58, 75), // Dark background
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -87,14 +87,16 @@ class ChangePasswordScreen extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xFF2C3348),
+                  fillColor: Color.fromARGB(255, 58, 58, 75),
                   hintText: 'Enter your old password',
                     hintStyle: TextStyle(
                       color: Colors.white70,
                       ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
-                    borderSide: BorderSide.none,
+                    borderSide: BorderSide(
+                      color: Colors.white70,
+                    ),
                   ),
                 ),
               ),
@@ -115,14 +117,16 @@ class ChangePasswordScreen extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xFF2C3348),
+                  fillColor: Color.fromARGB(255, 58, 58, 75),
                   hintText: 'Enter your new password',
                      hintStyle: TextStyle(
                     color: Colors.white70,
                     ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
-                    borderSide: BorderSide.none,
+                     borderSide: BorderSide(
+                      color: Colors.white70,
+                    ),
                   ),
                 ),
               ),
@@ -143,14 +147,17 @@ class ChangePasswordScreen extends StatelessWidget {
                 obscureText: true,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xFF2C3348),
+                  fillColor: Color.fromARGB(255, 58, 58, 75),
                   hintText: 'Re-enter your new password',
                     hintStyle: TextStyle(
                       color: Colors.white70,
                       ),
                   border: OutlineInputBorder(
+                    
                     borderRadius: BorderRadius.all(Radius.circular(12)),
-                    borderSide: BorderSide.none,
+                     borderSide: BorderSide(
+                      color: Colors.white70,
+                    ),
                   ),
                 ),
               ),
