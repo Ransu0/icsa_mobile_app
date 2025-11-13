@@ -1,85 +1,93 @@
 import 'package:flutter/material.dart';
+import 'package:icsa_mobile_app/src/features/home/presentation/pages/DashboardScreen.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Color bgColor = const Color(0xFF1E2430); // Dark background
-    final Color cardColor = const Color(0xFF2B3244);
+    final Color bgColor = const Color.fromARGB(255, 58, 58, 75); // Dark background
+    final Color cardColor = const Color(0xFF2A2A3C);
     final Color orangeAccent = const Color(0xFFFF8C00);
     final Color blueAccent = Colors.lightBlueAccent;
 
     return Scaffold(
       backgroundColor: bgColor,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: bgColor,
-        selectedItemColor: orangeAccent,
-        unselectedItemColor: Colors.white70,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications_active_outlined), label: ''),
-        ],
-      ),
+      currentIndex: 2, // 0=home,1=settings,2=notifications,3=user
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: bgColor,
+      selectedItemColor: orangeAccent, // 👈 selected icon color
+      unselectedItemColor: Colors.white70,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.notifications_active_outlined), label: ''), // will be orange if currentIndex==2
+        BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ''),
+      ],
+    ),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header row
-              // Header section with centered title and left back button
-                      SizedBox(
-                                width: double.infinity,
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFF2B3244), // Same as card color
-                                          borderRadius: BorderRadius.circular(16),
-                                          border: Border.all(color: const Color.fromARGB(255, 86, 79, 79), width: 1), // White border
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black.withOpacity(0.4), // Bottom shadow
-                                              offset: const Offset(0, 4),
-                                              blurRadius: 6,
+              // Header with back button
+              SizedBox(
+                width: double.infinity,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: cardColor,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: const Color.fromARGB(255, 86, 79, 79), width: 1),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.4),
+                              offset: const Offset(0, 4),
+                              blurRadius: 6,
+                            ),
+                          ],
+                        ),
+                        child: IconButton( onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => const DashboardScreen(),
                                             ),
-                                          ],
-                                        ),
-                                        child: IconButton(
-                                          onPressed: () {Navigator.pushNamed(context, '/another');},
-                                          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-                                        ),
+                                          );
+                                        },
+                                        icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                                       ),
-                                    ),
-                                    const Center(
-                                      child: Text(
-                                        'Notifications',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
 
-
-
+                      ),
+                    ),
+                    const Center(
+                      child: Text(
+                        'Notifications',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
               const SizedBox(height: 12),
-
               const Text(
                 'Earlier',
                 style: TextStyle(color: Colors.white70, fontSize: 14),
               ),
-
               const SizedBox(height: 12),
 
               // Notification Cards
@@ -134,17 +142,17 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color cardColor = const Color(0xFF2B3244);
+    final Color cardColor = const Color.fromARGB(255, 58, 58, 75);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color.fromARGB(255, 117, 109, 109), width: 1), // 👈 White outline
+        border: Border.all(color: const Color.fromARGB(255, 117, 109, 109), width: 1),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.4), // Shadow at bottom only
+            color: Colors.black.withOpacity(0.4),
             offset: const Offset(0, 4),
             blurRadius: 6,
           ),
@@ -169,22 +177,19 @@ class NotificationCard extends StatelessWidget {
         ),
         trailing: TextButton.icon(
           style: TextButton.styleFrom(
-            backgroundColor: Colors.transparent, // Transparent to match card
-            foregroundColor: Colors.white70,     // Text and icon color
+            backgroundColor: Colors.transparent,
+            foregroundColor: Colors.white70,
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            minimumSize: Size.zero,              // Shrinks button to fit content
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap, // No extra space
+            minimumSize: Size.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
           onPressed: () {
-            // Navigate to another screen or leave empty for null action
-            // Navigator.push(context, MaterialPageRoute(builder: (_) => AnotherScreen()));
+            // Add action here if needed
           },
           icon: const Icon(Icons.arrow_forward_ios, size: 16),
           label: const Text('View'),
         ),
-
       ),
     );
   }
 }
-
