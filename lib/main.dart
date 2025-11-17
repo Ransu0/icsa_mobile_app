@@ -1,16 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/firebase_options.dart';
 import 'package:icsa_mobile_app/src/myapp.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    options: FirebaseOptions(
+      apiKey: "dummy", // required but ignored for emulator
+      appId: "dummy",
+      messagingSenderId: "dummy",
+      projectId: dotenv.env['FIREBASE_PROJECT_ID']!,
+    ),
   );
   // Optionally automatically connect to emulator only in debug mode:
   const useEmulator = true; // flip false for production

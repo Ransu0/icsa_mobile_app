@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:icsa_mobile_app/src/features/home/presentation/pages/DashboardScreen.dart';
-import 'package:icsa_mobile_app/src/features/screens/change_password_screen.dart';
+import 'package:icsa_mobile_app/src/features/home/presentation/pages/dashboard_screen.dart';
+import 'package:icsa_mobile_app/src/features/authentication/presentation/pages/change_password_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -108,7 +108,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  int _currentIndex = 1; // Settings tab
+  final int _currentIndex = 1; // Settings tab
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +129,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const DashboardScreen()),
               );
             },
           ),
@@ -189,7 +190,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(height: 30),
               buildSectionTitle("Profile Settings"),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(0, 42, 52, 66),
                   borderRadius: BorderRadius.circular(8),
@@ -201,30 +203,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       "Change Password",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
-                   GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ChangePasswordScreen(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.all(6),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: const Color.fromARGB(255, 110, 99, 99)),
-                              borderRadius: BorderRadius.circular(9),
-                            ),
-                            child: const Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.white,
-                              size: 16,
-                            ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChangePasswordScreen(),
                           ),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 110, 99, 99)),
+                          borderRadius: BorderRadius.circular(9),
                         ),
-
+                        child: const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -233,8 +234,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: Column(
-                  children:
-                      issues.map((issue) => buildRadioOptionRight(issue)).toList(),
+                  children: issues
+                      .map((issue) => buildRadioOptionRight(issue))
+                      .toList(),
                 ),
               ),
               if (selectedIssue == "Other") ...[

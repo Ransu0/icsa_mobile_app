@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     // Example navigation
     if (mounted) {
-      context.go('/admin');
+      context.go('/home');
     }
   }
 
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 // Logo
                 Image.asset(
-                  'assets/images/codex_logo.png',
+                  '/images/codex-logo.png',
                   height: 80,
                 ),
                 const SizedBox(height: AppSpacing.xl),

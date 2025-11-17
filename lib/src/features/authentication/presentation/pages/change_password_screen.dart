@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/features/home/presentation/pages/DashboardScreen.dart';
-import 'package:icsa_mobile_app/src/features/screens/settings_screen.dart';
+import 'package:icsa_mobile_app/src/features/home/presentation/pages/settings_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,23 +33,26 @@ class ChangePasswordScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 20),
               // Back Button
-             // Back Button with border
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: const Color.fromARGB(255, 122, 108, 108), width: 1.5), // white border
-                      borderRadius: BorderRadius.circular(15), // rounded corners
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        // Navigate to DashboardScreen
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => const SettingsScreen()),
-                        );
-                      },
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    ),
-                  ),
+              // Back Button with border
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 122, 108, 108),
+                      width: 1.5), // white border
+                  borderRadius: BorderRadius.circular(15), // rounded corners
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    // Navigate to DashboardScreen
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsScreen()),
+                    );
+                  },
+                  icon: const Icon(Icons.arrow_back, color: Colors.white),
+                ),
+              ),
 
               const SizedBox(height: 40),
               // Logo
@@ -89,9 +91,9 @@ class ChangePasswordScreen extends StatelessWidget {
                   filled: true,
                   fillColor: Color(0xFF2C3348),
                   hintText: 'Enter your old password',
-                    hintStyle: TextStyle(
-                      color: Colors.white70,
-                      ),
+                  hintStyle: TextStyle(
+                    color: Colors.white70,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                     borderSide: BorderSide.none,
@@ -117,9 +119,9 @@ class ChangePasswordScreen extends StatelessWidget {
                   filled: true,
                   fillColor: Color(0xFF2C3348),
                   hintText: 'Enter your new password',
-                     hintStyle: TextStyle(
+                  hintStyle: TextStyle(
                     color: Colors.white70,
-                    ),
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                     borderSide: BorderSide.none,
@@ -145,9 +147,9 @@ class ChangePasswordScreen extends StatelessWidget {
                   filled: true,
                   fillColor: Color(0xFF2C3348),
                   hintText: 'Re-enter your new password',
-                    hintStyle: TextStyle(
-                      color: Colors.white70,
-                      ),
+                  hintStyle: TextStyle(
+                    color: Colors.white70,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                     borderSide: BorderSide.none,

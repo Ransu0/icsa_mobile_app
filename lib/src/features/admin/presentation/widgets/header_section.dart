@@ -3,7 +3,7 @@ import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
 class AdminHeaderSection extends StatelessWidget {
-  const AdminHeaderSection();
+  const AdminHeaderSection({super.key});
 
   @override
   Widget build(BuildContext context) {

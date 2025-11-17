@@ -3,7 +3,7 @@ import 'package:icsa_mobile_app/src/common/widgets/cards/info_card.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 
 class AdminCardSection extends StatelessWidget {
-  const AdminCardSection();
+  const AdminCardSection({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
 class AdminSearchBar extends StatelessWidget {
-  const AdminSearchBar();
+  const AdminSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {

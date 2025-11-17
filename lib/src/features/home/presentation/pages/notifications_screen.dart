@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/features/home/presentation/pages/DashboardScreen.dart';
+import 'package:icsa_mobile_app/src/features/home/presentation/pages/dashboard_screen.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Color bgColor = const Color.fromARGB(255, 58, 58, 75); // Dark background
+    final Color bgColor =
+        const Color.fromARGB(255, 58, 58, 75); // Dark background
     final Color cardColor = const Color(0xFF2A2A3C);
     final Color orangeAccent = const Color(0xFFFF8C00);
     final Color blueAccent = Colors.lightBlueAccent;
@@ -14,21 +15,23 @@ class NotificationsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       bottomNavigationBar: BottomNavigationBar(
-      currentIndex: 2, // 0=home,1=settings,2=notifications,3=user
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: bgColor,
-      selectedItemColor: orangeAccent, // 👈 selected icon color
-      unselectedItemColor: Colors.white70,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.notifications_active_outlined), label: ''), // will be orange if currentIndex==2
-        BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ''),
-      ],
-    ),
-
+        currentIndex: 2, // 0=home,1=settings,2=notifications,3=user
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: bgColor,
+        selectedItemColor: orangeAccent, // 👈 selected icon color
+        unselectedItemColor: Colors.white70,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings_outlined), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_active_outlined),
+              label: ''), // will be orange if currentIndex==2
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ''),
+        ],
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -47,7 +50,9 @@ class NotificationsScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: cardColor,
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: const Color.fromARGB(255, 86, 79, 79), width: 1),
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 86, 79, 79),
+                              width: 1),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.4),
@@ -56,17 +61,18 @@ class NotificationsScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: IconButton( onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => const DashboardScreen(),
-                                            ),
-                                          );
-                                        },
-                                        icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-                                      ),
-
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DashboardScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.arrow_back_ios,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                     const Center(
@@ -149,7 +155,8 @@ class NotificationCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color.fromARGB(255, 117, 109, 109), width: 1),
+        border: Border.all(
+            color: const Color.fromARGB(255, 117, 109, 109), width: 1),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.4),

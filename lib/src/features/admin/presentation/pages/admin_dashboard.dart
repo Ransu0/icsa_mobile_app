@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:icsa_mobile_app/src/common/widgets/navigation_bar.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/theme_provider.dart';
 import 'package:icsa_mobile_app/src/features/admin/presentation/widgets/card_section.dart';
 import 'package:icsa_mobile_app/src/features/admin/presentation/widgets/header_section.dart';
 import 'package:icsa_mobile_app/src/features/admin/presentation/widgets/search_bar.dart';
-import 'package:icsa_mobile_app/src/features/admin/presentation/widgets/upcoming_event_card.dart';
-import 'package:icsa_mobile_app/src/features/home/presentation/widgets/header_section.dart';
-import 'package:icsa_mobile_app/src/features/home/presentation/widgets/search_bar.dart';
-import 'package:icsa_mobile_app/src/features/home/presentation/widgets/upcoming_event_card.dart';
 import 'package:provider/provider.dart';
 
 class AdminDashboardPage extends StatelessWidget {

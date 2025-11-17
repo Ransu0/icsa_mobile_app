@@ -26,7 +26,7 @@ class AuthProvider extends ChangeNotifier {
 
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException {
       // Example: invalid email, wrong password
       rethrow; // or handle using a custom error message
     } catch (e) {
@@ -46,7 +46,7 @@ class AuthProvider extends ChangeNotifier {
       //   'email': email,
       //   'role': 'member',
       // });
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException {
       rethrow;
     }
   }
