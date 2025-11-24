@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icsa_mobile_app/src/core/routes/router.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
@@ -17,11 +15,11 @@ class AdminSearchBar extends StatelessWidget {
         Expanded(
           child: TextField(
             decoration: InputDecoration(
-              prefixIcon:
-                  const Icon(Icons.search, color: AppColors.textSecondary),
+              prefixIcon: Icon(Icons.search,
+                  color: Theme.of(context).colorScheme.secondary),
               hintText: 'Search Student',
-              hintStyle:
-                  AppTextStyles.body.copyWith(color: AppColors.textSecondary),
+              hintStyle: AppTextStyles.body
+                  .copyWith(color: Theme.of(context).colorScheme.secondary),
               filled: true,
               fillColor: colorScheme.surface,
               contentPadding:

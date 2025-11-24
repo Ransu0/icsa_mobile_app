@@ -33,16 +33,15 @@ dependencies:
   image_picker: ^1.1.1
   go_router: ^14.0.1
   cupertino_icons: ^1.0.8
-
   firebase_core: ^4.2.1
   firebase_auth: ^6.1.2
   cloud_functions: ^6.0.4
   cloud_firestore: ^6.1.0
-  firebase_storage: ^11.1.0
-
+  firebase_storage: 13.0.4
   provider: ^6.1.5+1
   flutter_dotenv: ^5.1.0
-
+  carousel_slider: ^5.1.1
+  file_picker: ^10.3.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -65,6 +64,9 @@ flutter:
     - assets/events/image1.png
     - assets/images/codex-logo.png
     - assets/images/profile.png
+    - assets/.env
+    - assets/images/codex-word-logo.png
+    - assets/images/image_placeholder.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

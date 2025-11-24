@@ -58,7 +58,7 @@ class ChangePasswordScreen extends StatelessWidget {
               // Logo
               Center(
                 child: Image.asset(
-                  'assets/logo.png', // Replace with your logo path
+                  'images/codex-logo.png', // Replace with your logo path
                   height: 80,
                 ),
               ),

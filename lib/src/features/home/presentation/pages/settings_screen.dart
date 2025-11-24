@@ -185,7 +185,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     isDarkMode = value;
                   });
                 },
-                activeColor: Colors.orange,
+                activeThumbColor: Colors.orange,
               ),
               const SizedBox(height: 30),
               buildSectionTitle("Profile Settings"),

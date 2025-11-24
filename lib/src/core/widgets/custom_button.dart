@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
@@ -21,7 +20,9 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: isPrimary ? AppColors.primary : AppColors.secondary,
+          backgroundColor: isPrimary
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.secondary,
           padding: const EdgeInsets.symmetric(
             vertical: AppSpacing.md,
             horizontal: AppSpacing.lg,

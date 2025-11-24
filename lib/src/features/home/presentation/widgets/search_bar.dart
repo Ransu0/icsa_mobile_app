@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
@@ -12,9 +11,11 @@ class AuthSearchBar extends StatelessWidget {
 
     return TextField(
       decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.search, color: AppColors.textSecondary),
+        prefixIcon:
+            Icon(Icons.search, color: Theme.of(context).colorScheme.onSurface),
         hintText: 'Search Student',
-        hintStyle: AppTextStyles.body.copyWith(color: AppColors.textSecondary),
+        hintStyle: AppTextStyles.body
+            .copyWith(color: Theme.of(context).colorScheme.onSurface),
         filled: true,
         fillColor: colorScheme.surface,
         contentPadding:

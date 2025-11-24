@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
@@ -27,18 +26,18 @@ class AdminCategorySection extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: AppColors.surface,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(AppSpacing.borderRadius),
                 ),
                 padding: const EdgeInsets.all(AppSpacing.md),
                 child: Icon(category['icon'] as IconData,
-                    color: AppColors.primary, size: 28),
+                    color: Theme.of(context).colorScheme.primary, size: 28),
               ),
               const SizedBox(height: AppSpacing.xs),
               Text(
                 category['label'] as String,
-                style:
-                    AppTextStyles.body.copyWith(color: AppColors.textSecondary),
+                style: AppTextStyles.body
+                    .copyWith(color: Theme.of(context).colorScheme.secondary),
               ),
             ],
           );

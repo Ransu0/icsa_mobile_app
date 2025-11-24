@@ -1,18 +1,39 @@
-rules_version='2'
-
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.role == "admin";
+    }
+
+    function isUser() {
+      return isSignedIn() && request.auth.token.role == "user";
+    }
+
+    match /students/{uid} {
+
+      // Allow admin to query all students
+      // Allow unauthenticated query for LOGIN ONLY (limit=1)
+      allow list: if 
+          isAdmin() ||
+          (request.auth == null && request.query.limit == 1);
+
+      // Allow student to read their own document
+      allow get: if 
+          isAdmin() ||
+          (isUser() && request.auth.token.student_id == uid);
+
+      // Writes admin only
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Default deny everything else
     match /{document=**} {
-      // This rule allows anyone with your database reference to view, edit,
-      // and delete all data in your database. It is useful for getting
-      // started, but it is configured to expire after 30 days because it
-      // leaves your app open to attackers. At that time, all client
-      // requests to your database will be denied.
-      //
-      // Make sure to write security rules for your app before that time, or
-      // else all client requests to your database will be denied until you
-      // update your rules.
-      allow read, write: if request.time < timestamp.date(2025, 12, 16);
+      allow read, write: if false;
     }
   }
 }

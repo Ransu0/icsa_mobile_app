@@ -1,0 +1,70 @@
+{
+  "_flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "icsa-microservices",
+          "appId": "1:600698365943:android:939fd7bbc7deac611e30f2",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "icsa-microservices",
+          "configurations": {
+            "android": "1:600698365943:android:939fd7bbc7deac611e30f2",
+            "ios": "1:600698365943:ios:5442311bbc0ede4b1e30f2",
+            "macos": "1:600698365943:ios:5442311bbc0ede4b1e30f2",
+            "web": "1:600698365943:web:f3c002fb5ba2e3d61e30f2",
+            "windows": "1:600698365943:web:ab4324b53535cefd1e30f2"
+          }
+        }
+      }
+    }
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true,
+    "database": {
+      "port": 9000
+    },
+    "storage": {
+      "port": 9199
+    }
+  },
+  "functions": [
+    {
+      "codebase": "default",
+      "disallowLegacyRuntimeConfig": true,
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": ["npm --prefix \"$RESOURCE_DIR\" run lint"],
+      "source": "functions"
+    }
+  ],
+  "firestore": {
+    "database": "(default)",
+    "location": "asia-southeast1",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

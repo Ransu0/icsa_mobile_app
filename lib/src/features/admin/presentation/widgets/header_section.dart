@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
 class AdminHeaderSection extends StatelessWidget {
@@ -15,11 +14,11 @@ class AdminHeaderSection extends StatelessWidget {
           children: [
             Text('Hello,',
                 style: AppTextStyles.subtitle
-                    .copyWith(color: AppColors.textSecondary)),
+                    .copyWith(color: Theme.of(context).colorScheme.onSurface)),
             Text(
               'Dominick!',
-              style: AppTextStyles.headline1
-                  .copyWith(color: AppColors.textPrimary),
+              style: AppTextStyles.heading1
+                  .copyWith(color: Theme.of(context).colorScheme.secondary),
             ),
           ],
         ),

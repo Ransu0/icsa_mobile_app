@@ -4,12 +4,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:icsa_mobile_app/src/core/theme/theme_provider.dart';
 import 'package:icsa_mobile_app/src/myapp.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:icsa_mobile_app/src/provider/student_provider.dart';
+import 'package:icsa_mobile_app/src/provider/auth_provider.dart'
+    as authProvider;
+import 'package:icsa_mobile_app/src/repository/auth_repository.dart';
+import 'package:icsa_mobile_app/src/service/auth_service.dart';
+
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  // Load environment variables
+  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(
     options: FirebaseOptions(
       apiKey: "dummy", // required but ignored for emulator
@@ -28,9 +37,13 @@ Future<void> main() async {
     FirebaseAuth.instance.useAuthEmulator(host, 9099);
     FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
     FirebaseFunctions.instance.useFunctionsEmulator(host, 5001);
-
     // For Functions, you can call functions with region/host later:
     debugPrint('Connected to Firebase emulators on $host');
   }
-  runApp(const StudentOrgApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => ThemeProvider()),
+    ChangeNotifierProvider(create: (_) => StudentProvider()),
+    ChangeNotifierProvider(
+        create: (_) => authProvider.AuthProvider(AuthRepository(AuthService())))
+  ], child: const StudentOrgApp()));
 }

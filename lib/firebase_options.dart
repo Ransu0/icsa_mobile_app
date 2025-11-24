@@ -41,48 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCvh-TEITkzOHiE10ar5SfHgmVc-qsJqUY',
-    appId: '1:600698365943:web:f3c002fb5ba2e3d61e30f2',
-    messagingSenderId: '600698365943',
-    projectId: 'icsa-microservices',
-    authDomain: 'icsa-microservices.firebaseapp.com',
-    storageBucket: 'icsa-microservices.firebasestorage.app',
-    measurementId: 'G-D5K0XTC38M',
+    apiKey: 'AIzaSyCyb56wPUscPIhGnGsPcqZXlI0zEOBFfY8',
+    appId: '1:963687368711:web:d71cb045e3b712d1b582a2',
+    messagingSenderId: '963687368711',
+    projectId: 'ic-lsg-app',
+    authDomain: 'ic-lsg-app.firebaseapp.com',
+    storageBucket: 'ic-lsg-app.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDPbWpX5Zz_SB5YJkrDAYycuzvlGYDLopA',
-    appId: '1:600698365943:android:939fd7bbc7deac611e30f2',
-    messagingSenderId: '600698365943',
-    projectId: 'icsa-microservices',
-    storageBucket: 'icsa-microservices.firebasestorage.app',
+    apiKey: 'AIzaSyCGxTGz5dREAI-mXGyc2bsEGS4UKOU0Fto',
+    appId: '1:963687368711:android:8b31ec40683f51deb582a2',
+    messagingSenderId: '963687368711',
+    projectId: 'ic-lsg-app',
+    storageBucket: 'ic-lsg-app.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDZUGL4GL2ytZf4Pvr_nmiv8WPi4mrh-aI',
-    appId: '1:600698365943:ios:5442311bbc0ede4b1e30f2',
-    messagingSenderId: '600698365943',
-    projectId: 'icsa-microservices',
-    storageBucket: 'icsa-microservices.firebasestorage.app',
+    apiKey: 'AIzaSyDUbioKB1YMbWNzEgaQR7BYbDvToURPyiw',
+    appId: '1:963687368711:ios:4bcc4556c0df9129b582a2',
+    messagingSenderId: '963687368711',
+    projectId: 'ic-lsg-app',
+    storageBucket: 'ic-lsg-app.firebasestorage.app',
     iosBundleId: 'com.example.icsaMobileApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDZUGL4GL2ytZf4Pvr_nmiv8WPi4mrh-aI',
-    appId: '1:600698365943:ios:5442311bbc0ede4b1e30f2',
-    messagingSenderId: '600698365943',
-    projectId: 'icsa-microservices',
-    storageBucket: 'icsa-microservices.firebasestorage.app',
+    apiKey: 'AIzaSyDUbioKB1YMbWNzEgaQR7BYbDvToURPyiw',
+    appId: '1:963687368711:ios:4bcc4556c0df9129b582a2',
+    messagingSenderId: '963687368711',
+    projectId: 'ic-lsg-app',
+    storageBucket: 'ic-lsg-app.firebasestorage.app',
     iosBundleId: 'com.example.icsaMobileApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCvh-TEITkzOHiE10ar5SfHgmVc-qsJqUY',
-    appId: '1:600698365943:web:ab4324b53535cefd1e30f2',
-    messagingSenderId: '600698365943',
-    projectId: 'icsa-microservices',
-    authDomain: 'icsa-microservices.firebaseapp.com',
-    storageBucket: 'icsa-microservices.firebasestorage.app',
-    measurementId: 'G-CX5CK0EBP2',
+    apiKey: 'AIzaSyCyb56wPUscPIhGnGsPcqZXlI0zEOBFfY8',
+    appId: '1:963687368711:web:3f15a63dbb85717cb582a2',
+    messagingSenderId: '963687368711',
+    projectId: 'ic-lsg-app',
+    authDomain: 'ic-lsg-app.firebaseapp.com',
+    storageBucket: 'ic-lsg-app.firebasestorage.app',
   );
+
 }

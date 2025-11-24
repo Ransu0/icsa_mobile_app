@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 import 'package:icsa_mobile_app/src/core/widgets/custom_button.dart';
+import 'package:icsa_mobile_app/src/provider/auth_provider.dart';
+import 'package:icsa_mobile_app/src/provider/student_provider.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -27,25 +29,49 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _onLoginPressed() async {
+    if (!mounted) {
+      debugPrint("Component not yet mounted");
+      return;
+    }
+
+    final auth = await context.read<AuthProvider>();
+    final student = await context
+        .read<StudentProvider>()
+        .findStudentById(_studentIdController.text);
+
+    if (student != null) {
+      debugPrint("Student found: ${student.firstname}");
+    } else {
+      debugPrint("Student not found!");
+      return;
+    }
+
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _isLoading = true);
 
-    // TODO: Add Firebase Auth logic here
-    await Future.delayed(const Duration(seconds: 1));
+    await auth.login(student.email, _passwordController.text);
+
+    if (auth.errorMessage != null) {
+      debugPrint("Login failed: ${auth.errorMessage}");
+      return;
+    } else {
+      debugPrint("Logged in as: ${auth.user!.email}");
+      debugPrint("Role: ${auth.user!.role}");
+
+      if (mounted) context.go('/home');
+    }
 
     setState(() => _isLoading = false);
 
     // Example navigation
-    if (mounted) {
-      context.go('/home');
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.textPrimary, // Dark background
+      backgroundColor:
+          Theme.of(context).colorScheme.onSurface, // Dark background
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -65,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Login',
-                    style: AppTextStyles.headline1.copyWith(
+                    style: AppTextStyles.heading1.copyWith(
                       color: Colors.white,
                     ),
                   ),
@@ -151,8 +177,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // Login Button
                       _isLoading
-                          ? const CircularProgressIndicator(
-                              color: AppColors.secondary)
+                          ? CircularProgressIndicator(
+                              color: Theme.of(context).colorScheme.tertiary)
                           : CustomButton(
                               label: 'Login',
                               onPressed: _onLoginPressed,
@@ -160,6 +186,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                ElevatedButton(
+                  onPressed: () => {context.go("/register")},
+                  child: Text("Register Admin"),
                 ),
               ],
             ),

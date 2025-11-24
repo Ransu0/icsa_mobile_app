@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
 class AuthHeaderSection extends StatelessWidget {
@@ -14,12 +13,12 @@ class AuthHeaderSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Hello,',
-                style: AppTextStyles.subtitle
-                    .copyWith(color: AppColors.textSecondary)),
+                style: AppTextStyles.subtitle.copyWith(
+                    color: Theme.of(context).colorScheme.onSecondary)),
             Text(
               'Dominick!',
-              style: AppTextStyles.headline1
-                  .copyWith(color: AppColors.textPrimary),
+              style: AppTextStyles.heading1
+                  .copyWith(color: Theme.of(context).colorScheme.primary),
             ),
           ],
         ),

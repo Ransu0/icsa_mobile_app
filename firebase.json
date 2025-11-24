@@ -1,46 +1,14 @@
 {
-  "flutter": {
-    "platforms": {
-      "android": {
-        "default": {
-          "projectId": "icsa-microservices",
-          "appId": "1:600698365943:android:939fd7bbc7deac611e30f2",
-          "fileOutput": "android/app/google-services.json"
-        }
-      },
-      "dart": {
-        "lib/firebase_options.dart": {
-          "projectId": "icsa-microservices",
-          "configurations": {
-            "android": "1:600698365943:android:939fd7bbc7deac611e30f2",
-            "ios": "1:600698365943:ios:5442311bbc0ede4b1e30f2",
-            "macos": "1:600698365943:ios:5442311bbc0ede4b1e30f2",
-            "web": "1:600698365943:web:f3c002fb5ba2e3d61e30f2",
-            "windows": "1:600698365943:web:ab4324b53535cefd1e30f2"
-          }
-        }
-      }
-    }
-  },
   "emulators": {
-    "auth": {
-      "port": 9099
-    },
-    "functions": {
-      "port": 5001
-    },
-    "firestore": {
-      "port": 8080
-    },
-    "ui": {
-      "enabled": true
-    },
+    "auth": { "port": 9099 },
+    "functions": { "port": 5001 },
+    "firestore": { "port": 8080 },
+    "ui": { "enabled": true },
     "singleProjectMode": true,
-    "database": {
-      "port": 9000
-    },
-    "storage": {
-      "port": 9199
+    "database": { "port": 9000 },
+    "storage": { "port": 9199 },
+    "export": {
+      "path": "firebase-data"
     }
   },
   "functions": [
@@ -63,5 +31,29 @@
     "location": "asia-southeast1",
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
+  },
+  "storage": { "rules": "storage.rules" },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "ic-lsg-app",
+          "appId": "1:963687368711:android:8b31ec40683f51deb582a2",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "ic-lsg-app",
+          "configurations": {
+            "android": "1:963687368711:android:8b31ec40683f51deb582a2",
+            "ios": "1:963687368711:ios:4bcc4556c0df9129b582a2",
+            "macos": "1:963687368711:ios:4bcc4556c0df9129b582a2",
+            "web": "1:963687368711:web:d71cb045e3b712d1b582a2",
+            "windows": "1:963687368711:web:3f15a63dbb85717cb582a2"
+          }
+        }
+      }
+    }
   }
 }

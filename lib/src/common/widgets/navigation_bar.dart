@@ -11,7 +11,10 @@ class CustomNavBar extends StatelessWidget {
     int selectedIndex = 0;
 
     if (location.startsWith('/')) selectedIndex = 0;
-    if (location.startsWith('/admin')) selectedIndex = 1;
+    if (location.startsWith('/events')) selectedIndex = 1;
+    if (location.startsWith('/announcement')) selectedIndex = 2;
+    if (location.startsWith('/fines')) selectedIndex = 3;
+    if (location.startsWith('/profile')) selectedIndex = 4;
 
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -23,21 +26,42 @@ class CustomNavBar extends StatelessWidget {
       onTap: (index) {
         switch (index) {
           case 0:
-            context.go('/');
+            context.go('/home');
             break;
           case 1:
-            context.go('/admin');
+            context.go('/events');
+            break;
+          case 2:
+            context.go("/announcements");
+            break;
+          case 3:
+            context.go("/fines");
+            break;
+          case 4:
+            context.go("/profile");
             break;
         }
       },
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.dashboard),
+          icon: Icon(Icons.home),
           label: 'Dashboard',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.people),
-          label: 'Students',
+          icon: Icon(Icons.calendar_today),
+          label: 'Events',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.question_answer),
+          label: 'Annoucements',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.payment),
+          label: 'Fines',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle),
+          label: 'Profile',
         ),
       ],
     );

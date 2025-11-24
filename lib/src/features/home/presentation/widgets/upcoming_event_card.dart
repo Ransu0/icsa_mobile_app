@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icsa_mobile_app/src/core/theme/app_color.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_spacing.dart';
 import 'package:icsa_mobile_app/src/core/theme/app_text_styles.dart';
 
@@ -12,7 +11,7 @@ class AuthUpcomingEventCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
-        color: AppColors.primary.withValues(alpha: 0.15),
+        color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(AppSpacing.borderRadius),
       ),
       child: Row(
@@ -29,24 +28,24 @@ class AuthUpcomingEventCard extends StatelessWidget {
                 Text(
                   'Dr. Jennifer Smith',
                   style: AppTextStyles.subtitle
-                      .copyWith(color: AppColors.textPrimary),
+                      .copyWith(color: Theme.of(context).colorScheme.onSurface),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   'Orthopedic Consultation (Foot & Ankle)',
                   style: AppTextStyles.body
-                      .copyWith(color: AppColors.textSecondary),
+                      .copyWith(color: Theme.of(context).colorScheme.secondary),
                 ),
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    const Icon(Icons.calendar_today,
-                        size: 16, color: AppColors.textSecondary),
+                    Icon(Icons.calendar_today,
+                        size: 16, color: Theme.of(context).colorScheme.primary),
                     const SizedBox(width: 4),
                     Text(
                       'Wed, 7 Sep 2024   10:30–11:30 AM',
-                      style: AppTextStyles.body
-                          .copyWith(color: AppColors.textSecondary),
+                      style: AppTextStyles.body.copyWith(
+                          color: Theme.of(context).colorScheme.primary),
                     ),
                   ],
                 ),
