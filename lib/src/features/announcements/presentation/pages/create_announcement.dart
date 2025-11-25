@@ -21,7 +21,7 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
   List<File> selectedImages = [];
 
   Future<void> pickImages() async {
-    final List<XFile>? files = await _picker.pickMultiImage();
+    final List<XFile> files = await _picker.pickMultiImage();
     if (files != null) {
       setState(() {
         selectedImages = files.map((x) => File(x.path)).toList();
@@ -79,7 +79,7 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
             borderRadius: BorderRadius.circular(10),
           ),
           child: DropdownButtonFormField<String>(
-            value: classification,
+            initialValue: classification,
             dropdownColor: const Color(0xFF1F2330),
             icon: const Icon(Icons.arrow_drop_down, color: Colors.white70),
             decoration: const InputDecoration(border: InputBorder.none),

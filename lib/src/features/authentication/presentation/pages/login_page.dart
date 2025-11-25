@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    final auth = await context.read<AuthProvider>();
+    final auth = context.read<AuthProvider>();
     final student = await context
         .read<StudentProvider>()
         .findStudentById(_studentIdController.text);

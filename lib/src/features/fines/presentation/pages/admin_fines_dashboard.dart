@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icsa_mobile_app/src/common/widgets/no_page_found.dart';
-import 'package:icsa_mobile_app/src/features/events/presentation/pages/add_event_page.dart';
 import 'dart:io';
 
 class AdminFinesPage extends StatefulWidget {

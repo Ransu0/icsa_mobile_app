@@ -1,1 +1,4 @@
-class NotificationModel {}
+class NotificationModel {
+  uid
+
+}

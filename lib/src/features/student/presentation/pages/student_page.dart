@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icsa_mobile_app/src/common/widgets/navigation_bar.dart';
-import 'package:icsa_mobile_app/src/models/student_model.dart';
 import 'package:icsa_mobile_app/src/provider/student_provider.dart';
 import 'package:icsa_mobile_app/src/provider/auth_provider.dart' as auth;
 
